@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeartSpeak - Anonymous Advice Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Lato', sans-serif; margin: 0; padding: 0; background-color: #F5F5F5; color: #2F4F4F; line-height: 1.6; font-weight: 400; }
+        header { background: linear-gradient(135deg, #6A5ACD, #4169E1); padding: 30px; text-align: center; box-shadow: 0 6px 12px rgba(0,0,0,0.3); color: white; position: relative; }
+        header::after { content: "🗣️"; font-size: 2em; position: absolute; top: 10px; right: 20px; animation: bounce 2s infinite; } /* Sticker-like emoji */
+        nav { margin-top: 15px; }
+        nav a { margin: 0 20px; text-decoration: none; color: white; font-weight: 700; font-size: 1.1em; transition: transform 0.3s; }
+        nav a:hover { color: #DC143C; transform: scale(1.1); }
+        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; position: relative; }
+        .hero { background: linear-gradient(135deg, #4169E1, #6A5ACD); color: white; text-align: center; border-radius: 15px; padding: 100px 20px; border: 3px solid #DC143C; box-shadow: 0 8px 16px rgba(0,0,0,0.3); animation: fadeIn 1s ease-in; }
+        .hero h1 { font-size: 3em; margin-bottom: 20px; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.3em; max-width: 700px; margin: 0 auto; font-weight: 500; }
+        .hero .icon { font-size: 3em; margin-top: 20px; color: #DC143C; animation: pulse 2s infinite; } /* Sticker icon */
+        .share-form { background-color: white; padding: 50px; border-radius: 15px; box-shadow: 0 8px 16px rgba(0,0,0,0.3); max-width: 700px; margin: 0 auto; border: 3px solid #DEB887; position: relative; }
+        .share-form::before { content: "🔒 Safe & Anonymous"; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #DC143C; color: white; padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 0.9em; } /* Bold badge */
+        .share-form h2 { text-align: center; color: #6A5ACD; font-weight: 700; font-size: 2em; margin-bottom: 30px; }
+        .share-form label { display: block; margin-bottom: 15px; font-weight: 600; color: #2F4F4F; font-size: 1.1em; }
+        .share-form input, .share-form select, .share-form textarea { width: 100%; padding: 15px; border: 2px solid #DEB887; border-radius: 10px; margin-bottom: 25px; font-family: inherit; background-color: #F5F5F5; font-weight: 400; transition: border-color 0.3s; }
+        .share-form input:focus, .share-form select:focus, .share-form textarea:focus { border-color: #DC143C; outline: none; }
+        .share-form button { background: linear-gradient(135deg, #DC143C, #6A5ACD); color: white; border: none; padding: 15px 30px; border-radius: 30px; cursor: pointer; font-size: 1.2em; font-weight: 700; width: 100%; transition: transform 0.3s, box-shadow 0.3s; }
+        .share-form button:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .about { text-align: center; background: linear-gradient(135deg, #4169E1, #DEB887); color: white; border-radius: 15px; border: 3px solid #DC143C; padding: 60px; font-weight: 500; position: relative; }
+        .about .icon { font-size: 4em; margin-bottom: 20px; color: #DC143C; animation: spin 3s infinite linear; } /* Unique spinning icon */
+        .testimonials { background-color: white; padding: 60px; }
+        .testimonial { margin: 30px 0; padding: 30px; border-left: 8px solid #DC143C; border-radius: 10px; background-color: #F5F5F5; font-weight: 500; position: relative; }
+        .testimonial::after { content: "💬"; position: absolute; top: 10px; right: 10px; font-size: 2em; } /* Sticker emoji */
+        footer { background: linear-gradient(135deg, #6A5ACD, #4169E1); text-align: center; padding: 30px; font-size: 1em; color: white; font-weight: 500; border-top: 3px solid #DC143C; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.5em; } section { padding: 50px 10px; } .share-form { padding: 30px; } }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-heart"></i> HeartSpeak</h1> <!-- Bold icon integration -->
+        <nav>
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="#share">Share</a>
+            <a href="#testimonials">Testimonials</a>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero">
+        <h1>Speak Your Heart. Get Honest Perspective.</h1>
+        <p>Share your personal problems anonymously and receive thoughtful opinions and guidance from a supportive community. Your story matters, and you're not alone.</p>
+        <div class="icon"><i class="fas fa-comments"></i></div> <!-- Catchy sticker icon -->
+    </section>
+
+    <section id="share">
+        <div class="share-form">
+            <h2>Share Your Problem</h2>
+            <form action="#" method="post"> <!-- Replace with backend endpoint -->
+                <label for="name">Name (Optional) <i class="fas fa-user"></i></label> <!-- Icon for catchiness -->
+                <input type="text" id="name" name="name" placeholder="Enter your name or leave blank">
+
+                <label for="email">Email (Optional) <i class="fas fa-envelope"></i></label>
+                <input type="email" id="email" name="email" placeholder="Enter your email for follow-up">
+
+                <label for="category">Problem Category <i class="fas fa-tags"></i></label>
+                <select id="category" name="category">
+                    <option value="">Select a category</option>
+                    <option value="relationship">Relationship</option>
+                    <option value="career">Career</option>
+                    <option value="family">Family</option>
+                    <option value="self-doubt">Self-Doubt</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="message">Detailed Problem Description <i class="fas fa-edit"></i></label>
+                <textarea id="message" name="message" rows="8" placeholder="Describe your problem here..."></textarea>
+
+                <button type="submit">Submit Anonymously <i class="fas fa-paper-plane"></i></button> <!-- Bold button with icon -->
+            </form>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="icon"><i class="fas fa-shield-alt"></i></div> <!-- Unique spinning icon -->
+        <h2>About HeartSpeak</h2>
+        <p>This is a safe space where people can share their thoughts without fear of judgment. We connect you with empathetic listeners who offer honest, supportive advice to help you navigate life's challenges.</p>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <h2>What People Say</h2>
+        <div class="testimonial">
+            <p>"HeartSpeak helped me see my relationship issues from a new angle. The advice was kind and spot-on!" - Anonymous User</p>
+        </div>
+        <div class="testimonial">
+            <p>"I felt so alone with my career doubts, but sharing here gave me clarity. Thank you for this safe haven." - Anonymous User</p>
+        </div>
+        <div class="testimonial">
+            <p>"The non-judgmental support here is incredible. It's like talking to a trusted friend." - Anonymous User</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Contact us: nashrasiddiqui862@gmail.com <i class="fas fa-envelope"></i></p>
+        <p><em>This platform provides personal opinions and is not a substitute for professional therapy. Seek help from qualified professionals if needed.</em></p>
+    </footer>
+</body>
+</html>
